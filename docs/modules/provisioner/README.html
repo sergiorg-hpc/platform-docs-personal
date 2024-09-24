@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParallelCluster Provisioner &mdash; Blue Brain Open Platform - Documents 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Thumbnail Service" href="../thumbnail/README.html" />
+    <link rel="prev" title="Model Data Service" href="../pointcloud/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Blue Brain Open Platform - Documents
+              <img src="../../../_static/obp_logo.drawio.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Architecture Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../overview/README.html">Introduction and Architecture Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../accounting/README.html">Accounting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authnz/README.html">Authentication and Authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interactive/README.html">Interactive Application Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../knowledgegraph/README.html">Metadata and Data Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../machinelearning/index.html">Machine Learning Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../meshgeneration/README.html">Mesh Generation Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pointcloud/README.html">Model Data Service</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ParallelCluster Provisioner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#network-architecture-for-parallelcluster-deployments">Network Architecture for ParallelCluster Deployments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-architecture-for-parallelcluster-deployments">Storage Architecture for ParallelCluster Deployments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../thumbnail/README.html">Thumbnail Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visualization/README.html">Visualization Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vlab/README.html">Virtual Lab Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../workflow/README.html">Workflow Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf/index.html">AWS Well-Architected Framework Review</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blue Brain Open Platform - Documents</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Architecture Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modules</a></li>
+      <li class="breadcrumb-item active">ParallelCluster Provisioner</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/BlueBrain/platform-docs/blob/main/docs/modules/provisioner/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parallelcluster-provisioner">
+<h1>ParallelCluster Provisioner<a class="headerlink" href="#parallelcluster-provisioner" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>[!NOTE]
+<strong>Also known as:</strong> HPC Resource Provisioner</p>
+</div></blockquote>
+<p>With the purpose of running large-scale simulations in the Blue Brain Open Platform, the <strong>ParallelCluster Provisioner</strong> is a service that provides the capability for deploying ParalellCluster instances on-demand for a given Project inside a Virtual Lab.</p>
+<p>When a new simulation is created, the <a class="reference internal" href="#../Workflow/"><span class="xref myst">Workflow Service</span></a> communicates via REST API with the Provisioner to request the creation of a ParallelCluster that will accommodate the workload from the simulation scheduled in the platform. If required, the Provisioner will then deploy a private HPC cluster that is tailor-made to the necessities of the campaign. Hence, allowing the Workflow Service to manage the different tasks required for the job to succeed.</p>
+<p><img alt="ParallelCluster Provisioner - Main Architecture" src="../../../_images/1_main.drawio9.svg" /></p>
+<p>Here are some of the key technologies utilized for the infrastructure:</p>
+<ul class="simple">
+<li><p>The Provisioner service runs on <strong>AWS Lambda</strong> using a container image stored in <strong>Amazon ECR</strong>.</p>
+<ul>
+<li><p>Each container image version is pushed from our private GitLab repository into ECR via a CI/CD pipeline job.</p></li>
+<li><p>The source code of the Provisioner is written in Python 3.</p></li>
+</ul>
+</li>
+<li><p>All the communication with the Provisioner are handled exclusively via a REST API provided by <strong>AWS API Gateway</strong>.</p>
+<ul>
+<li><p>Only the Workflow Service is allowed to interact with the provisioner.</p></li>
+</ul>
+</li>
+<li><p>Each new cluster is built and deployed using <strong>AWS ParallelCluster</strong> inside a dedicated <strong>private subnet</strong> in a <strong>private VPC</strong> that features <strong>VPC Endpoints</strong> to access the different services  (see <a class="reference internal" href="#network-architecture-for-parallelcluster-deployments"><span class="xref myst">Network Architecture for ParallelCluster Deployments</span></a>).</p></li>
+<li><p>A cluster deployment consists of a tailor-made HPC cluster that integrates <strong>Amazon EFS</strong> for home directories and essential cluster configuration, <strong>Lustre FSx</strong> as parallel file system, and long-term storage provided by two buckets on <strong>Amazon S3</strong> (see <a class="reference internal" href="#storage-architecture-for-parallelcluster-deployments"><span class="xref myst">Storage Architecture for ParallelCluster Deployments</span></a>).</p>
+<ul>
+<li><p>Only the Workflow Service is allowed to interact with each cluster to schedule jobs via SLURM via SSH<a class="footnote-reference brackets" href="#ssh" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></li>
+<li><p>Although not implemented yet, it is expected for the Provisoner to generate a unique ED25519 SSH key-pair per deployment via Amazon EC2.</p></li>
+<li><p>It is also expected for the private key of a given ParallelCluster to be stored in AWS Secrets Manager (or AWS Systems Manager Parameter Store).</p></li>
+</ul>
+</li>
+<li><p>Each cluster is configured to communicate with a shared relational database on <strong>Amazon RDS</strong> for SLURM accounting and job monitoring purposes. The account configuration is currently protected via <strong>AWS Secrets Manager</strong>.</p>
+<ul>
+<li><p>The RDS deployment is MariaDB-based for compatibility with SLURM.</p></li>
+<li><p>The database instance is deployed via Terraform inside the private VPC and accessible from each subnet.</p></li>
+</ul>
+</li>
+<li><p>Alongside the system log monitoring provided by ParallelCluster by default, each cluster deployment also synchronizes SLURM data to a dedicated <strong>CloudWatch Log Group</strong> containing details about the jobs.</p>
+<ul>
+<li><p>The data synchronized includes the SLURM job information, environment (e.g., modules loaded), standard output / error, and other useful information.</p></li>
+</ul>
+</li>
+</ul>
+<section id="network-architecture-for-parallelcluster-deployments">
+<h2>Network Architecture for ParallelCluster Deployments<a class="headerlink" href="#network-architecture-for-parallelcluster-deployments" title="Link to this heading"></a></h2>
+<p>Each ParallelCluster is deployed inside a dedicated subnet of a private VPC with no Internet Gateway. We rely on dedicated <strong>VPC <ins>Gateway</ins> Endpoints</strong> for DynamoDB and S3, as well as <strong>VPC <ins>Interface</ins> Endpoints</strong> for CloudFormation, CloudWatch, EFS, and other services that are required for the whole infrastructure to work accordingly.</p>
+<p><img alt="Diagram" src="../../../_images/2_network.drawio.svg" /></p>
+<p>A <strong>VPC Peering</strong> connection is set between the Private VPC and the Main VPC to enable certain traffic between both networks. For instance, the Provisioner or even the Workflow Service require communicating with the compute instances deployed. However, we are not interested in these instances accessing the Internet from the Private VPC.</p>
+<p>For this purpose, we establish specific <strong>Security Group Rules</strong> to prevent random traffic to cross the boundaries of each VPC. Thus, allowing us to ensure that the ParallelCluster deployments remain completely offline and only accessible by the required services.</p>
+</section>
+<section id="storage-architecture-for-parallelcluster-deployments">
+<h2>Storage Architecture for ParallelCluster Deployments<a class="headerlink" href="#storage-architecture-for-parallelcluster-deployments" title="Link to this heading"></a></h2>
+<p>Parallel jobs per Virtual Lab Project always run in a private ParallelCluster and are only allowed to <code class="docutils literal notranslate"><span class="pre">read</span></code> / <code class="docutils literal notranslate"><span class="pre">write</span></code> into their own private directory located in the ‘<code class="docutils literal notranslate"><span class="pre">scratch</span></code>’ directory of a private <strong>Lustre FSx</strong> filesystem.</p>
+<p><img alt="Diagram" src="../../../_images/3_storage.drawio.svg" /></p>
+<p>Scientific data is retrieved through the ‘<code class="docutils literal notranslate"><span class="pre">project</span></code>’ directory in Lustre FSx, which is composed of two S3-DRA mount points targetting two separate S3 buckets for scientific data:</p>
+<ul class="simple">
+<li><p>A ‘<code class="docutils literal notranslate"><span class="pre">public</span></code>’ directory containing all of the public assets of Blue Brain Open Platform stored in a shared S3 bucket. These assets are visible among all of the Virtual Labs.</p></li>
+<li><p>A ‘<code class="docutils literal notranslate"><span class="pre">private</span></code>’ directory that contains the assets stored by a particular Project in a Virtual Lab. The assets are implicitly not visible among Projects nor Virtual Labs.</p></li>
+</ul>
+<p>In certain use-cases (e.g., eModel Fitting), Lustre FSx is omitted to optimize the overall operational costs. The simulations rely on EFS instead. The data stored on S3 is still accessible through S3-FUSE, and the data synchronizations are handled through a conventional data upload on the <a class="reference internal" href="#../Nexus/"><span class="xref myst">Metadata and Data Service</span></a>.</p>
+<p>Note that the data management and knowledge graph data registration is still handled via Nexus, but orchestrated in this case from the Workflow Service.</p>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="ssh" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Support for SLURM REST API with JWKS authentication via Keycloak is provided as well.</p>
+</aside>
+</aside>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../pointcloud/README.html" class="btn btn-neutral float-left" title="Model Data Service" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../thumbnail/README.html" class="btn btn-neutral float-right" title="Thumbnail Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blue Brain Open Platform.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

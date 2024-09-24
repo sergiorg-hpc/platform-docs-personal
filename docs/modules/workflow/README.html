@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow Service &mdash; Blue Brain Open Platform - Documents 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="AWS Well-Architected Framework Review" href="../../../waf/index.html" />
+    <link rel="prev" title="Virtual Lab Service" href="../vlab/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Blue Brain Open Platform - Documents
+              <img src="../../../_static/obp_logo.drawio.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Architecture Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../overview/README.html">Introduction and Architecture Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../accounting/README.html">Accounting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authnz/README.html">Authentication and Authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interactive/README.html">Interactive Application Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../knowledgegraph/README.html">Metadata and Data Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../machinelearning/index.html">Machine Learning Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../meshgeneration/README.html">Mesh Generation Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pointcloud/README.html">Model Data Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../provisioner/README.html">ParallelCluster Provisioner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../thumbnail/README.html">Thumbnail Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visualization/README.html">Visualization Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vlab/README.html">Virtual Lab Service</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Workflow Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../waf/index.html">AWS Well-Architected Framework Review</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blue Brain Open Platform - Documents</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Architecture Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Modules</a></li>
+      <li class="breadcrumb-item active">Workflow Service</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/BlueBrain/platform-docs/blob/main/docs/modules/workflow/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="workflow-service">
+<h1>Workflow Service<a class="headerlink" href="#workflow-service" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>[!NOTE]
+<strong>Also known as:</strong> <code class="docutils literal notranslate"><span class="pre">bbp-workflow</span></code></p>
+</div></blockquote>
+<p>One of the future use-cases expected in the Blue Brain Open Platform, would be to run large-scale simulations that may require dozens or even hundreds of computational resources and high-performance storage infrastructure (e.g., Lustre FSx). The orchestration for such simulations is mostly led by the <strong>Workflow Service</strong>, whose purpose is to spawn tailor-made resources through the <a class="reference internal" href="#../Provisioner/"><span class="xref myst">ParallelCluster Provisioner</span></a> and to control / monitor the execution of the different tasks associated with the workloads, among others.</p>
+<p>When a new simulation is requested from the interface of the platform, a request is made to the REST API of the Workflow Service to authorize the request and also to orchestrate the deployment of <a class="reference external" href="https://github.com/BlueBrain/bbp-workflow"><code class="docutils literal notranslate"><span class="pre">bbp-workflow</span></code></a> inside an ECS Container Instance. The Provisioner is in charge of deploying the necessary infrastructure (if required) and provides the Workflow Service with the necessary information to locate and authenticate on the cluster. After this, the service will schedule and monitor the execution of the different tasks running in the cluster, as well as coordinate the data registration in the knowledge graph via the <a class="reference internal" href="#../Nexus/"><span class="xref myst">Metadata and Data Service</span></a>.</p>
+<p><img alt="Workflow Service - Main Architecture" src="../../../_images/1_main.drawio14.svg" /></p>
+<p>Here are some of the key technologies utilized for the infrastructure:</p>
+<ul class="simple">
+<li><p>The Workflow Service mainly runs on an <strong>ECS Container Instance</strong> orchestrated via an <strong>ECS Cluster</strong>, with one instance launched per Virtual Lab Project<a class="footnote-reference brackets" href="#deployment" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<ul>
+<li><p>The service is based on the use of a container image from  <a class="reference external" href="https://github.com/BlueBrain/bbp-workflow"><code class="docutils literal notranslate"><span class="pre">bbp-workflow</span></code></a>.</p></li>
+<li><p>The source code of bbp-workflow is written in Python 3 and relies on the use of <a class="reference external" href="https://github.com/spotify/luigi">Luigi Framework</a> to build the job pipelines and monitor the execution.</p></li>
+</ul>
+</li>
+<li><p>All the communication with the Workflow Service is handled exclusively via a REST API provided by <strong>AWS API Gateway</strong>.</p>
+<ul>
+<li><p>Only the authorized users are allowed to interact with the service.</p></li>
+</ul>
+</li>
+<li><p>A dedicated <strong>AWS Lambda</strong> handles the authentication and authorization of the requests via the <a class="reference internal" href="#../Keycloak/"><span class="xref myst">Authentication and Authorization Service</span></a>.</p>
+<ul>
+<li><p>An authorization token is provided for the Container Instances Handler.</p></li>
+</ul>
+</li>
+<li><p>The Container Instances Handler is another <strong>AWS Lambda</strong> that validates the authorization token and provides support in the orchestration of the Workflow instances.</p></li>
+<li><p>The <a class="reference internal" href="#../Provisioner/"><span class="xref myst">ParallelCluster Provisioner</span></a> provides the necessary details to request the SSH private key to the <strong>AWS Secrets Manager</strong>, as well as to locate the ParallelCluster deployed for the specific Virtual Lab Project.</p></li>
+<li><p>Interactions with the <a class="reference internal" href="#../Nexus/"><span class="xref myst">Metadata and Data Service</span></a> are required to register new data into the knowledge graph.</p>
+<ul>
+<li><p>In the case of large-scale simulations with Lustre FSx, the synchronization of the data is managed by a dedicated job with elevated permissions that relies on the existing S3-DRA setup. The Workflow service handles the request to store the data, monitor the job that is communicating with the Lustre HSM Service, and finally handles the confirmation of the synchronization.</p></li>
+<li><p>In the case of large-scale simulations without Lustre FSx (e.g., eModel Fitting), the synchronization of the data is managed via direct upload to the knowledge graph using the support provided by Nexus.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="deployment" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Each ParallelCluster deployment is constrained to a Project inside a Virtual Lab. Thus, the approach is to deploy a container instance per Project. We might limit the number of instances in the future.</p>
+</aside>
+</aside>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../vlab/README.html" class="btn btn-neutral float-left" title="Virtual Lab Service" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../waf/index.html" class="btn btn-neutral float-right" title="AWS Well-Architected Framework Review" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blue Brain Open Platform.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

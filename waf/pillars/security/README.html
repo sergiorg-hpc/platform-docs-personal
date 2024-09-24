@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS WAF Review - Security Pillar &mdash; Blue Brain Open Platform - Documents 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="AWS Well-Architected Framework Review" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Blue Brain Open Platform - Documents
+              <img src="../../../_static/obp_logo.drawio.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/index.html">Architecture Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">AWS Well-Architected Framework Review</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><strong>AWS WAF Review</strong> - Security Pillar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-of-contents">Table of Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sec-1-how-do-you-securely-operate-your-workload"><strong>SEC 1:</strong> How do you securely operate your workload?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-2-how-do-you-manage-identities-for-people-and-machines"><strong>SEC 2:</strong> How do you manage identities for people and machines?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-3-how-do-you-manage-permissions-for-people-and-machines"><strong>SEC 3:</strong> How do you manage permissions for people and machines?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-4-how-do-you-detect-and-investigate-security-events"><strong>SEC 4:</strong> How do you detect and investigate security events?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-5-how-do-you-protect-your-network-resources"><strong>SEC 5:</strong> How do you protect your network resources?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-6-how-do-you-protect-your-compute-resources"><strong>SEC 6:</strong> How do you protect your compute resources?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-7-how-do-you-classify-your-data"><strong>SEC 7:</strong> How do you classify your data?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-8-how-do-you-protect-your-data-at-rest"><strong>SEC 8:</strong> How do you protect your data at rest?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-9-how-do-you-protect-your-data-in-transit"><strong>SEC 9:</strong> How do you protect your data in transit?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-10-how-do-you-anticipate-respond-to-and-recover-from-incidents"><strong>SEC 10:</strong> How do you anticipate, respond to, and recover from incidents?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sec-11-how-do-you-incorporate-and-validate-the-security-properties-of-applications-throughout-the-design-development-and-deployment-lifecycle"><strong>SEC 11:</strong> How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blue Brain Open Platform - Documents</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">AWS Well-Architected Framework Review</a></li>
+      <li class="breadcrumb-item active"><strong>AWS WAF Review</strong> - Security Pillar</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/BlueBrain/platform-docs/blob/main/waf/pillars/security/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aws-waf-review-security-pillar">
+<h1><strong>AWS WAF Review</strong> - Security Pillar<a class="headerlink" href="#aws-waf-review-security-pillar" title="Link to this heading"></a></h1>
+<p>The <strong>Security Pillar</strong> provides guidance to help us apply best practices and current recommendations in the design, delivery and maintenance of secure AWS workloads. It also helps in meeting our business and regulatory requirements.</p>
+<p>Similar to other pillars from the AWS Well-Architected Framework Review, the document is divided in different questions that aim at reflecting the potential flaws in the design considerations of our architecture.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#sec-1-how-do-you-securely-operate-your-workload"><span class="xref myst"><strong>SEC 1:</strong> How do you securely operate your workload?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-2-how-do-you-manage-identities-for-people-and-machines"><span class="xref myst"><strong>SEC 2:</strong> How do you manage identities for people and machines?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-3-how-do-you-manage-permissions-for-people-and-machines"><span class="xref myst"><strong>SEC 3:</strong> How do you manage permissions for people and machines?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-4-how-do-you-detect-and-investigate-security-events"><span class="xref myst"><strong>SEC 4:</strong> How do you detect and investigate security events?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-5-how-do-you-protect-your-network-resources"><span class="xref myst"><strong>SEC 5:</strong> How do you protect your network resources?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-6-how-do-you-protect-your-compute-resources"><span class="xref myst"><strong>SEC 6:</strong> How do you protect your compute resources?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-7-how-do-you-classify-your-data"><span class="xref myst"><strong>SEC 7:</strong> How do you classify your data?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-8-how-do-you-protect-your-data-at-rest"><span class="xref myst"><strong>SEC 8:</strong> How do you protect your data at rest?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-9-how-do-you-protect-your-data-in-transit"><span class="xref myst"><strong>SEC 9:</strong> How do you protect your data in transit?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-10-how-do-you-anticipate-respond-to-and-recover-from-incidents"><span class="xref myst"><strong>SEC 10:</strong> How do you anticipate, respond to, and recover from incidents?</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-11-how-do-you-incorporate-and-validate-the-security-properties-of-applications-throughout-the-design-development-and-deployment-lifecycle"><span class="xref myst"><strong>SEC 11:</strong> How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?</span></a></p></li>
+</ol>
+<section id="sec-1-how-do-you-securely-operate-your-workload">
+<h3><strong>SEC 1:</strong> How do you securely operate your workload?<a class="headerlink" href="#sec-1-how-do-you-securely-operate-your-workload" title="Link to this heading"></a></h3>
+<p>Try and follow best practices:</p>
+<ul class="simple">
+<li><p>Least priv. access</p></li>
+<li><p>TLS all web communication</p></li>
+<li><p>AuthN/Z for services handled by keycloak</p></li>
+<li><p>Nearly all infra brought up by Terraform, plan to make it not directly accessible even to those directly working on it (in the future)</p></li>
+<li><p>1 deployment for all users.</p></li>
+</ul>
+</section>
+<section id="sec-2-how-do-you-manage-identities-for-people-and-machines">
+<h3><strong>SEC 2:</strong> How do you manage identities for people and machines?<a class="headerlink" href="#sec-2-how-do-you-manage-identities-for-people-and-machines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>End users are defined in Keycloak. All(??) exposed services verify if users are authenticated in Keycloak.</p></li>
+<li><p>Identity is stored is GitHub</p></li>
+<li><p>Personnel have their own AWS IAM Identity Center account.</p></li>
+<li><p>AWS components like EC2 VMs have certain IAM roles with limited rights which are created/deployed with Terraform.</p></li>
+</ul>
+</section>
+<section id="sec-3-how-do-you-manage-permissions-for-people-and-machines">
+<h3><strong>SEC 3:</strong> How do you manage permissions for people and machines?<a class="headerlink" href="#sec-3-how-do-you-manage-permissions-for-people-and-machines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>For users, keycloak</p></li>
+<li><p>For employees, limited read only access to AWS console</p></li>
+<li><p>Terraform for bringing up infra; generally doesn’t include access except for admins, still some exists for employees as things are brought online</p></li>
+</ul>
+</section>
+<section id="sec-4-how-do-you-detect-and-investigate-security-events">
+<h3><strong>SEC 4:</strong> How do you detect and investigate security events?<a class="headerlink" href="#sec-4-how-do-you-detect-and-investigate-security-events" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The WAF could likely detect security events, but we’re not actively monitoring its logs and we have no alerting setup.</p></li>
+<li><p>We also have no active monitoring &amp; alerting for other signs of security issues, such as high number of errors in containers, or big increase in network or S3 I/O traffic.</p></li>
+</ul>
+</section>
+<section id="sec-5-how-do-you-protect-your-network-resources">
+<h3><strong>SEC 5:</strong> How do you protect your network resources?<a class="headerlink" href="#sec-5-how-do-you-protect-your-network-resources" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Single VPC with network segmentation</p>
+<ul>
+<li><p>But access rules between subnets are too open</p></li>
+</ul>
+</li>
+<li><p>All web traffic traverses a loadbalancer, with WAF in front of the load balancer</p></li>
+</ul>
+</section>
+<section id="sec-6-how-do-you-protect-your-compute-resources">
+<h3><strong>SEC 6:</strong> How do you protect your compute resources?<a class="headerlink" href="#sec-6-how-do-you-protect-your-compute-resources" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Infra generally isn’t accessible, even to employees (is the goal)</p></li>
+<li><p>Users authenticated by keycloak, if jobs are launched, plan is to account for usage, and bill that way</p></li>
+<li><p>Have alerts for excess costs</p></li>
+</ul>
+</section>
+<section id="sec-7-how-do-you-classify-your-data">
+<h3><strong>SEC 7:</strong> How do you classify your data?<a class="headerlink" href="#sec-7-how-do-you-classify-your-data" title="Link to this heading"></a></h3>
+<p>Our main storage is S3 and managed by a knowledge graph data management service (i.e., Nexus).</p>
+<p>The plan is to have read-only public assets accessible by all users, as well as read-write private assets accessible exclusively by their respective owner (i.e., Project ID of a specific Virtual Lab ID).</p>
+<p>We plan to use tags to classify the ownership and purpose of the data at S3 object storage-level.</p>
+<p>We have active support for tag verification and automatic tagging of AWS resources based on component owner. This work could be extended for data stored on S3 from specific users.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Potential</span> <span class="pre">issue:</span></code> We currently do not have a proper data lifecycle management (e.g., for how long are we going to retain data from organizations that no longer utilize the platform, etc.).</p>
+</section>
+<section id="sec-8-how-do-you-protect-your-data-at-rest">
+<h3><strong>SEC 8:</strong> How do you protect your data at rest?<a class="headerlink" href="#sec-8-how-do-you-protect-your-data-at-rest" title="Link to this heading"></a></h3>
+<p>Stored in S3, behind a service that handles authN/Z</p>
+<p>Our main storage is S3 and managed by a knowledge graph data management service (i.e., Nexus).</p>
+<p>We have hashes of the data stored in the knowledge graph for data integrity purposes.</p>
+<p>Assets are read-only. Write is only supported prior to authentication and validation by data management service.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Potential</span> <span class="pre">issue:</span></code> We currently do not encrypt our assets on S3, and even if we did, it would help to protect against external attacks and not internal attacks (i.e., one user reading confidential data from another user without data management service interference).</p>
+</section>
+<section id="sec-9-how-do-you-protect-your-data-in-transit">
+<h3><strong>SEC 9:</strong> How do you protect your data in transit?<a class="headerlink" href="#sec-9-how-do-you-protect-your-data-in-transit" title="Link to this heading"></a></h3>
+<p>TLS</p>
+</section>
+<section id="sec-10-how-do-you-anticipate-respond-to-and-recover-from-incidents">
+<h3><strong>SEC 10:</strong> How do you anticipate, respond to, and recover from incidents?<a class="headerlink" href="#sec-10-how-do-you-anticipate-respond-to-and-recover-from-incidents" title="Link to this heading"></a></h3>
+<p>Backup / restore consistency between RDS / S3 is not managed</p>
+<p>No process.</p>
+</section>
+<section id="sec-11-how-do-you-incorporate-and-validate-the-security-properties-of-applications-throughout-the-design-development-and-deployment-lifecycle">
+<h3><strong>SEC 11:</strong> How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?<a class="headerlink" href="#sec-11-how-do-you-incorporate-and-validate-the-security-properties-of-applications-throughout-the-design-development-and-deployment-lifecycle" title="Link to this heading"></a></h3>
+<p>Experts review the terraform changes.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../index.html" class="btn btn-neutral float-left" title="AWS Well-Architected Framework Review" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Blue Brain Open Platform.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
