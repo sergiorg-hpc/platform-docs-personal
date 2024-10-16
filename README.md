@@ -1,8 +1,10 @@
 # **Blue Brain Open Platform** - Documents
 
-This is a work-in-progress repository containing the [Architecture Documentation](docs/) of the **Blue Brain Open Platform**, as well as the review documents for the [AWS Well-Architected Framework](waf).
+This is a work-in-progress repository containing the [Architecture Documentation](docs/) of the **Blue Brain Open Platform**, as well as the review documents for the [AWS Well-Architected Framework](waf)[^waf_clarification].
 
 For convenience, the file format utilized for the documentation is [Markdown](https://en.wikipedia.org/wiki/Markdown), and for the diagrams is Scalable Vector Graphics (SVG) made with [Draw.io](https://github.com/jgraph/drawio). The plan would be to either publish a GitHub Page at some point, or to generate a proper documentation via other means.
+
+[^waf_clarification]: **Important:** The AWS Well-Architected Framework is expected to be followed inside the AWS Console instead.
 
 ## How to Edit the Documentation and Diagrams
 One of the main reasons behind choosing the Markdown + Draw.io formats, is the convenience of having automatically available VSCode on GitHub for the very same repository. No installations nor complex configurations are required.
